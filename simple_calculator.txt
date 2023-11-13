@@ -1,0 +1,29 @@
+def simple_calculator():
+
+    while True:
+        try:
+            number1=int(input("Enter number 1:"))
+            number2=int(input("Enter number 2:"))
+
+            operation=input("Enter operation:")
+            if operation == "+":
+              print(number1+number2)
+            elif operation == "-":
+              print(number1-number2)
+            elif operation == "*":
+              print(number1*number2)
+            elif operation == "/":
+              if number2==0:
+                  raise ZeroDivisionError("Division by zero is not allowed")
+              print(number1/number2)
+            else:
+              print("Please enter a valid operation.")
+              
+        except ValueError:
+            print("Please enter a valid number.")
+        except ZeroDivisionError:
+            print("Division by zero is not allowed.")
+        except Exception:
+            print("Please try again.")
+
+simple_calculator()
