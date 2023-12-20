@@ -1,0 +1,22 @@
+def checkout_books(librarian_name, *book_titles, duration='2 weeks', **kwargs):
+    print("Checkout Processed by:"+librarian_name)
+    print("\nBooks Checked Out:")
+    for book in book_titles:
+        print("- "+book)
+    print("\nCheckout Duration: "+duration)
+
+    if kwargs:
+        print("\nAdditional Checkout Details:") 
+        for key, value in kwargs.items():
+            if key != "special_conditions":
+                print(f"- {key.title().replace('_', ' ')}: {str(value)}")
+            else:
+                continue 
+                
+    special_conditions = kwargs.get('special_conditions')
+    if special_conditions:
+        print("\nSpecial Conditions for Checkout:")
+        print(f"- {special_conditions}")
+
+# Example usage:
+checkout_books('Sarah Connor', '1984', 'Brave New World', duration='3 weeks', late_fee='$0.25', renewals_allowed='2', special_conditions='Handle with care')
